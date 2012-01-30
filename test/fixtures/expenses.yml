@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  spent_on: MyString
+  date: 2012-01-30 15:09:12
+  amount: 1
+  spent_by: MyString
+
+two:
+  spent_on: MyString
+  date: 2012-01-30 15:09:12
+  amount: 1
+  spent_by: MyString
