@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <%= form_for(@expense) do |f| %>
   <% if @expense.errors.any? %>
     <div id="error_explanation">
@@ -13,21 +14,29 @@
 
   <div class="field">
     <%= f.label :spent_on %><br />
-    <%= f.text_field :spent_on %>
-  </div>
-  <div class="field">
-    <%= f.label :date %><br />
-    <%= f.datetime_select :date %>
+    <%= f.text_field :spent_on, :required => true %>
   </div>
   <div class="field">
     <%= f.label :amount %><br />
-    <%= f.number_field :amount %>
+    <%= f.text_field :amount, :required => true, :pattern => "[0-9.]+", :title => "Enter amount less than 50000" %>
   </div>
   <div class="field">
-    <%= f.label :spent_by %><br />
-    <%= f.text_field :spent_by %>
+    <%= f.label :date %><br />
+    <%= f.text_field :date, :required => true %>
+  </div>
+  <div class="field">
+    <%= f.label :note %><br />
+    <%= f.text_area :note ,:cols => 22 , :rows => 5 %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+<script>
+  $(function() {
+    $("$expense_date").datepicker();
+});
+  
+</script>
+

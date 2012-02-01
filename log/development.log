@@ -1,0 +1,965 @@
+  [1m[36mSQL (49.0ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (1.0ms)[0m  SHOW TABLES
+  [1m[36mSQL (4.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateExpenses (20120201003121)
+  [1m[35mSQL (283.0ms)[0m  CREATE TABLE `expenses` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `spent_on` varchar(255), `amount` int(11), `date` datetime, `note` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (259.8ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20120201003121')[0m
+  [1m[35mSQL (1.0ms)[0m  SHOW TABLES
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[35mSQL (1.0ms)[0m  SHOW TABLES
+  [1m[36mSQL (6.0ms)[0m  [1mdescribe `expenses`[0m
+  [1m[35mSQL (4.0ms)[0m  SHOW KEYS FROM `expenses`
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from require at script/rails:6)
+
+
+Started GET "/" for 127.0.0.1 at Wed Feb 01 06:05:35 +0530 2012
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 32ms (Views: 31.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Feb 01 06:06:29 +0530 2012
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 30ms (Views: 30.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/expenses" for 127.0.0.1 at Wed Feb 01 06:06:41 +0530 2012
+  Processing by ExpensesController#index as HTML
+  [1m[36mExpense Load (0.0ms)[0m  [1mSELECT `expenses`.* FROM `expenses`[0m
+Rendered expenses/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 281ms (Views: 36.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/expenses" for 127.0.0.1 at Wed Feb 01 06:08:19 +0530 2012
+  Processing by ExpensesController#index as HTML
+  [1m[35mExpense Load (1.0ms)[0m  SELECT `expenses`.* FROM `expenses`
+Rendered expenses/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 94ms (Views: 32.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/expenses/new" for 127.0.0.1 at Wed Feb 01 06:08:22 +0530 2012
+  Processing by ExpensesController#new as HTML
+Rendered expenses/_form.html.erb (98.0ms)
+Rendered expenses/new.html.erb within layouts/application (110.0ms)
+Completed 200 OK in 152ms (Views: 138.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/expenses/new" for 127.0.0.1 at Wed Feb 01 06:09:39 +0530 2012
+  Processing by ExpensesController#new as HTML
+Rendered expenses/_form.html.erb (18.0ms)
+Rendered expenses/new.html.erb within layouts/application (29.0ms)
+Completed 200 OK in 68ms (Views: 56.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/expenses/new" for 127.0.0.1 at Wed Feb 01 06:10:08 +0530 2012
+  Processing by ExpensesController#new as HTML
+Rendered expenses/_form.html.erb (19.0ms)
+Rendered expenses/new.html.erb within layouts/application (31.0ms)
+Completed 200 OK in 71ms (Views: 59.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/expenses/new" for 127.0.0.1 at Wed Feb 01 06:10:17 +0530 2012
+  Processing by ExpensesController#new as HTML
+Rendered expenses/_form.html.erb (18.0ms)
+Rendered expenses/new.html.erb within layouts/application (29.0ms)
+Completed 200 OK in 68ms (Views: 57.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/expenses/new" for 127.0.0.1 at Wed Feb 01 06:10:27 +0530 2012
+  Processing by ExpensesController#new as HTML
+Rendered expenses/_form.html.erb (37.0ms)
+Rendered expenses/new.html.erb within layouts/application (50.0ms)
+Completed 200 OK in 107ms (Views: 92.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/expenses/new" for 127.0.0.1 at Wed Feb 01 06:10:53 +0530 2012
+  Processing by ExpensesController#new as HTML
+ERROR: compiling _app_views_expenses__form_html_erb___974724425_44845464_531190 RAISED compile error
+C:/Users/Aa/Documents/iExpense/app/views/expenses/_form.html.erb:28: syntax error, unexpected tIDENTIFIER, expecting ')'
+...text_area :note ,:col => 215px , :rows => 5 );@output_buffer...
+                              ^
+C:/Users/Aa/Documents/iExpense/app/views/expenses/_form.html.erb:28: syntax error, unexpected tASSOC, expecting tCOLON2 or '[' or '.'
+...note ,:col => 215px , :rows => 5 );@output_buffer.safe_conca...
+                              ^
+Function body:           def _app_views_expenses__form_html_erb___974724425_44845464_531190(local_assigns)
+            _old_virtual_path, @_virtual_path = @_virtual_path, "expenses/_form";_old_output_buffer = @output_buffer;form = local_assigns[:form];;@output_buffer = ActionView::OutputBuffer.new;@output_buffer.append=  form_for(@expense) do |f| @output_buffer.safe_concat('
+');   if @expense.errors.any? 
+@output_buffer.safe_concat('    <div id="error_explanation">
+      <h2>');@output_buffer.append= ( pluralize(@expense.errors.count, "error") );@output_buffer.safe_concat(' prohibited this expense from being saved:</h2>
+
+      <ul>
+');@output_buffer.append_if_string=        @expense.errors.full_messages.each do |msg| 
+@output_buffer.safe_concat('        <li>');@output_buffer.append= ( msg );@output_buffer.safe_concat('</li>
+');       end 
+@output_buffer.safe_concat('      </ul>
+    </div>
+');   end 
+@output_buffer.safe_concat('
+  <div class="field">
+    ');@output_buffer.append= ( f.label :spent_on );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_field :spent_on );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+    ');@output_buffer.append= ( f.label :amount );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_field :amount );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+    ');@output_buffer.append= ( f.label :date );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.datetime_select :date );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+    ');@output_buffer.append= ( f.label :note );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_area :note ,:col => 215px , :rows => 5 );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="actions">
+    ');@output_buffer.append= ( f.submit );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+'); end 
+@output_buffer.to_s
+          ensure
+            @_virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: C:/Users/Aa/Documents/iExpense/app/views/expenses/_form.html.erb:37:in `compile'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/template.rb:134:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/notifications.rb:54:in `instrument'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/template.rb:127:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/render/partials.rb:333:in `render_partial'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/render/partials.rb:262:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/notifications.rb:52:in `instrument'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/notifications.rb:52:in `instrument'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/render/partials.rb:260:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/render/partials.rb:378:in `_render_partial'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/render/rendering.rb:31:in `render'
+C:/Users/Aa/Documents/iExpense/app/views/expenses/new.html.erb:3:in `_app_views_expenses_new_html_erb___745912619_44851380_0'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/template.rb:135:in `send'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/template.rb:135:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/notifications.rb:54:in `instrument'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/template.rb:127:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/render/rendering.rb:59:in `_render_template'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/notifications.rb:52:in `instrument'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/notifications.rb:52:in `instrument'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/render/rendering.rb:56:in `_render_template'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/render/rendering.rb:26:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/abstract_controller/rendering.rb:115:in `_render_template'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/abstract_controller/rendering.rb:109:in `render_to_body'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/abstract_controller/rendering.rb:102:in `render_to_string'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/abstract_controller/rendering.rb:93:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/rendering.rb:17:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/instrumentation.rb:40:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+C:/Ruby187/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/instrumentation.rb:40:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-3.0.9/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/instrumentation.rb:39:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/mime_responds.rb:261:in `retrieve_response_from_mimes'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/mime_responds.rb:192:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/mime_responds.rb:192:in `respond_to'
+C:/Users/Aa/Documents/iExpense/app/controllers/expenses_controller.rb:29:in `new'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/abstract_controller/base.rb:150:in `process_action'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/rendering.rb:11:in `process_action'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/abstract_controller/callbacks.rb:18:in `process_action'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/callbacks.rb:436:in `_run__406702022__process_action__943997142__callbacks'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/callbacks.rb:410:in `send'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/callbacks.rb:410:in `_run_process_action_callbacks'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/callbacks.rb:94:in `send'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/callbacks.rb:94:in `run_callbacks'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/abstract_controller/callbacks.rb:17:in `process_action'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/notifications.rb:52:in `instrument'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/notifications.rb:52:in `instrument'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/rescue.rb:17:in `process_action'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/abstract_controller/base.rb:119:in `process'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/abstract_controller/rendering.rb:41:in `process'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal.rb:138:in `dispatch'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal.rb:178:in `action'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/routing/route_set.rb:62:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/routing/route_set.rb:27:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:148:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:93:in `recognize'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:75:in `optimized_each'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:92:in `recognize'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:139:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/routing/route_set.rb:493:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/head.rb:14:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.5/lib/rack/methodoverride.rb:24:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/flash.rb:182:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/cookies.rb:302:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-3.0.9/lib/active_record/query_cache.rb:32:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-3.0.9/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-3.0.9/lib/active_record/query_cache.rb:12:in `cache'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-3.0.9/lib/active_record/query_cache.rb:31:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-3.0.9/lib/active_record/connection_adapters/abstract/connection_pool.rb:354:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/callbacks.rb:46:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/callbacks.rb:416:in `_run_call_callbacks'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.5/lib/rack/sendfile.rb:106:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/show_exceptions.rb:47:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.9/lib/rails/rack/logger.rb:13:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.5/lib/rack/runtime.rb:17:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.5/lib/rack/lock.rb:13:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.5/lib/rack/lock.rb:13:in `synchronize'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.5/lib/rack/lock.rb:13:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/static.rb:30:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.9/lib/rails/application.rb:168:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.9/lib/rails/application.rb:77:in `send'
+C:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.9/lib/rails/application.rb:77:in `method_missing'
+C:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.9/lib/rails/rack/log_tailer.rb:14:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.5/lib/rack/content_length.rb:13:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.5/lib/rack/chunked.rb:15:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.5/lib/rack/handler/mongrel.rb:67:in `process'
+C:/Ruby187/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mingw32/lib/mongrel.rb:159:in `process_client'
+C:/Ruby187/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mingw32/lib/mongrel.rb:158:in `each'
+C:/Ruby187/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mingw32/lib/mongrel.rb:158:in `process_client'
+C:/Ruby187/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mingw32/lib/mongrel.rb:285:in `run'
+C:/Ruby187/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mingw32/lib/mongrel.rb:285:in `initialize'
+C:/Ruby187/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mingw32/lib/mongrel.rb:285:in `new'
+C:/Ruby187/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mingw32/lib/mongrel.rb:285:in `run'
+C:/Ruby187/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mingw32/lib/mongrel.rb:268:in `initialize'
+C:/Ruby187/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mingw32/lib/mongrel.rb:268:in `new'
+C:/Ruby187/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mingw32/lib/mongrel.rb:268:in `run'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.5/lib/rack/handler/mongrel.rb:38:in `run'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.5/lib/rack/server.rb:217:in `start'
+C:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.9/lib/rails/commands/server.rb:65:in `start'
+C:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.9/lib/rails/commands.rb:30
+C:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.9/lib/rails/commands.rb:27:in `tap'
+C:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.9/lib/rails/commands.rb:27
+script/rails:6:in `require'
+script/rails:6
+Rendered expenses/_form.html.erb (125.0ms)
+Rendered expenses/new.html.erb within layouts/application (136.0ms)
+Completed 500 Internal Server Error in 193ms
+
+ActionView::Template::Error (compile error
+C:/Users/Aa/Documents/iExpense/app/views/expenses/_form.html.erb:28: syntax error, unexpected tIDENTIFIER, expecting ')'
+...text_area :note ,:col => 215px , :rows => 5 );@output_buffer...
+                              ^
+C:/Users/Aa/Documents/iExpense/app/views/expenses/_form.html.erb:28: syntax error, unexpected tASSOC, expecting tCOLON2 or '[' or '.'
+...note ,:col => 215px , :rows => 5 );@output_buffer.safe_conca...
+                              ^):
+    25:   </div>
+    26:   <div class="field">
+    27:     <%= f.label :note %><br />
+    28:     <%= f.text_area :note ,:col => 215px , :rows => 5 %>
+    29:   </div>
+    30:   <div class="actions">
+    31:     <%= f.submit %>
+  app/views/expenses/_form.html.erb:37:in `compile'
+  app/views/expenses/new.html.erb:3:in `_app_views_expenses_new_html_erb___745912619_44851380_0'
+  app/controllers/expenses_controller.rb:29:in `new'
+
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (12.0ms)
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (71.0ms)
+
+
+Started GET "/expenses/new" for 127.0.0.1 at Wed Feb 01 06:11:03 +0530 2012
+  Processing by ExpensesController#new as HTML
+Rendered expenses/_form.html.erb (25.0ms)
+Rendered expenses/new.html.erb within layouts/application (40.0ms)
+Completed 200 OK in 94ms (Views: 74.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/expenses/new" for 127.0.0.1 at Wed Feb 01 06:11:39 +0530 2012
+  Processing by ExpensesController#new as HTML
+Rendered expenses/_form.html.erb (19.0ms)
+Rendered expenses/new.html.erb within layouts/application (30.0ms)
+Completed 200 OK in 73ms (Views: 61.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/expenses/new" for 127.0.0.1 at Wed Feb 01 06:11:48 +0530 2012
+  Processing by ExpensesController#new as HTML
+Rendered expenses/_form.html.erb (36.0ms)
+Rendered expenses/new.html.erb within layouts/application (49.0ms)
+Completed 200 OK in 97ms (Views: 82.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/expenses/new" for 127.0.0.1 at Wed Feb 01 06:11:57 +0530 2012
+  Processing by ExpensesController#new as HTML
+Rendered expenses/_form.html.erb (81.0ms)
+Rendered expenses/new.html.erb within layouts/application (97.0ms)
+Completed 200 OK in 144ms (Views: 130.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/expenses/new" for 127.0.0.1 at Wed Feb 01 06:18:10 +0530 2012
+  Processing by ExpensesController#new as HTML
+Rendered expenses/_form.html.erb (23.0ms)
+Rendered expenses/new.html.erb within layouts/application (39.0ms)
+Completed 200 OK in 85ms (Views: 71.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/expenses/new" for 127.0.0.1 at Wed Feb 01 06:18:38 +0530 2012
+  Processing by ExpensesController#new as HTML
+Rendered expenses/_form.html.erb (22.0ms)
+Rendered expenses/new.html.erb within layouts/application (39.0ms)
+Completed 200 OK in 83ms (Views: 70.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/expenses/new" for 127.0.0.1 at Wed Feb 01 06:19:05 +0530 2012
+  Processing by ExpensesController#new as HTML
+Rendered expenses/_form.html.erb (30.0ms)
+Rendered expenses/new.html.erb within layouts/application (48.0ms)
+Completed 200 OK in 150ms (Views: 134.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/expenses/new" for 127.0.0.1 at Wed Feb 01 06:19:51 +0530 2012
+  Processing by ExpensesController#new as HTML
+Rendered expenses/_form.html.erb (22.0ms)
+Rendered expenses/new.html.erb within layouts/application (45.0ms)
+Completed 200 OK in 97ms (Views: 79.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/expenses/new" for 127.0.0.1 at Wed Feb 01 06:20:56 +0530 2012
+  Processing by ExpensesController#new as HTML
+Rendered expenses/_form.html.erb (21.0ms)
+Rendered expenses/new.html.erb within layouts/application (39.0ms)
+Completed 200 OK in 86ms (Views: 70.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/expenses/new" for 127.0.0.1 at Wed Feb 01 06:22:06 +0530 2012
+  Processing by ExpensesController#new as HTML
+Rendered expenses/_form.html.erb (21.0ms)
+Rendered expenses/new.html.erb within layouts/application (38.0ms)
+Completed 200 OK in 82ms (Views: 69.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/expenses" for 127.0.0.1 at Wed Feb 01 06:22:34 +0530 2012
+  Processing by ExpensesController#create as HTML
+  Parameters: {"commit"=>"Create Expense", "expense"=>{"date(1i)"=>"2012", "date(2i)"=>"2", "date(3i)"=>"1", "amount"=>"s", "date(4i)"=>"00", "spent_on"=>"s", "date(5i)"=>"52", "note"=>""}, "authenticity_token"=>"ZsNzdzCO6yBrfaOoRKOHe/f7XtCYnv3gJ5EL5OP2ytY=", "utf8"=>"✓"}
+  [1m[36mSQL (48.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  SHOW TABLES
+  [1m[36mSQL (15.0ms)[0m  [1mdescribe `expenses`[0m
+  [1m[35mAREL (22.0ms)[0m  INSERT INTO `expenses` (`updated_at`, `created_at`, `note`, `spent_on`, `date`, `amount`) VALUES ('2012-02-01 00:52:34', '2012-02-01 00:52:34', '', 's', '2012-02-01 00:52:00', 0)
+  [1m[36mSQL (25.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/expenses/1
+Completed 302 Found in 209ms
+
+
+Started GET "/expenses/1" for 127.0.0.1 at Wed Feb 01 06:22:34 +0530 2012
+  Processing by ExpensesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mExpense Load (16.0ms)[0m  SELECT `expenses`.* FROM `expenses` WHERE `expenses`.`id` = 1 LIMIT 1
+Rendered expenses/show.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 96ms (Views: 55.0ms | ActiveRecord: 16.0ms)
+
+
+Started GET "/expenses" for 127.0.0.1 at Wed Feb 01 06:22:37 +0530 2012
+  Processing by ExpensesController#index as HTML
+  [1m[36mExpense Load (1.0ms)[0m  [1mSELECT `expenses`.* FROM `expenses`[0m
+Rendered expenses/index.html.erb within layouts/application (21.0ms)
+Completed 200 OK in 62ms (Views: 50.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/expenses/1" for 127.0.0.1 at Wed Feb 01 06:22:39 +0530 2012
+  Processing by ExpensesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mExpense Load (0.0ms)[0m  SELECT `expenses`.* FROM `expenses` WHERE `expenses`.`id` = 1 LIMIT 1
+Rendered expenses/show.html.erb within layouts/application (30.0ms)
+Completed 200 OK in 77ms (Views: 60.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/expenses" for 127.0.0.1 at Wed Feb 01 06:22:41 +0530 2012
+  Processing by ExpensesController#index as HTML
+  [1m[36mExpense Load (1.0ms)[0m  [1mSELECT `expenses`.* FROM `expenses`[0m
+Rendered expenses/index.html.erb within layouts/application (21.0ms)
+Completed 200 OK in 61ms (Views: 51.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/expenses/1" for 127.0.0.1 at Wed Feb 01 06:22:43 +0530 2012
+  Processing by ExpensesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mExpense Load (1.0ms)[0m  SELECT `expenses`.* FROM `expenses` WHERE `expenses`.`id` = 1 LIMIT 1
+Rendered expenses/show.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 60ms (Views: 45.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/expenses" for 127.0.0.1 at Wed Feb 01 06:22:44 +0530 2012
+  Processing by ExpensesController#index as HTML
+  [1m[36mExpense Load (1.0ms)[0m  [1mSELECT `expenses`.* FROM `expenses`[0m
+Rendered expenses/index.html.erb within layouts/application (22.0ms)
+Completed 200 OK in 77ms (Views: 59.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/expenses/new" for 127.0.0.1 at Wed Feb 01 06:22:50 +0530 2012
+  Processing by ExpensesController#new as HTML
+Rendered expenses/_form.html.erb (33.0ms)
+Rendered expenses/new.html.erb within layouts/application (49.0ms)
+Completed 200 OK in 94ms (Views: 78.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/expenses/new" for 127.0.0.1 at Wed Feb 01 06:27:57 +0530 2012
+  Processing by ExpensesController#new as HTML
+Rendered expenses/_form.html.erb (25.0ms)
+Rendered expenses/new.html.erb within layouts/application (44.0ms)
+Completed 200 OK in 97ms (Views: 79.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/expenses/new" for 127.0.0.1 at Wed Feb 01 06:28:53 +0530 2012
+  Processing by ExpensesController#new as HTML
+Rendered expenses/_form.html.erb (33.0ms)
+Rendered expenses/new.html.erb within layouts/application (54.0ms)
+Completed 200 OK in 127ms (Views: 103.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/expenses/new" for 127.0.0.1 at Wed Feb 01 06:35:43 +0530 2012
+  Processing by ExpensesController#new as HTML
+Rendered expenses/_form.html.erb (31.0ms)
+Rendered expenses/new.html.erb within layouts/application (50.0ms)
+Completed 200 OK in 98ms (Views: 81.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/expenses/new" for 127.0.0.1 at Wed Feb 01 06:36:15 +0530 2012
+  Processing by ExpensesController#new as HTML
+Rendered expenses/_form.html.erb (28.0ms)
+Rendered expenses/new.html.erb within layouts/application (43.0ms)
+Completed 200 OK in 92ms (Views: 74.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/expenses/new" for 127.0.0.1 at Wed Feb 01 06:36:15 +0530 2012
+  Processing by ExpensesController#new as HTML
+Rendered expenses/_form.html.erb (19.0ms)
+Rendered expenses/new.html.erb within layouts/application (37.0ms)
+Completed 200 OK in 108ms (Views: 93.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/expenses/new" for 127.0.0.1 at Wed Feb 01 06:36:16 +0530 2012
+  Processing by ExpensesController#new as HTML
+Rendered expenses/_form.html.erb (19.0ms)
+Rendered expenses/new.html.erb within layouts/application (35.0ms)
+Completed 200 OK in 79ms (Views: 64.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/expenses/new" for 127.0.0.1 at Wed Feb 01 06:39:07 +0530 2012
+  Processing by ExpensesController#new as HTML
+Rendered expenses/_form.html.erb (22.0ms)
+Rendered expenses/new.html.erb within layouts/application (40.0ms)
+Completed 200 OK in 89ms (Views: 71.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/expenses/new" for 127.0.0.1 at Wed Feb 01 06:39:53 +0530 2012
+  Processing by ExpensesController#new as HTML
+Rendered expenses/_form.html.erb (21.0ms)
+Rendered expenses/new.html.erb within layouts/application (37.0ms)
+Completed 200 OK in 82ms (Views: 67.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Feb 01 06:43:45 +0530 2012
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 31ms (Views: 31.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/expenses" for 127.0.0.1 at Wed Feb 01 06:44:21 +0530 2012
+  Processing by ExpensesController#index as HTML
+  [1m[35mExpense Load (0.0ms)[0m  SELECT `expenses`.* FROM `expenses`
+Rendered expenses/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 47ms (Views: 46.8ms | ActiveRecord: 0.0ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from require at script/rails:6)
+
+
+Started GET "/expenses" for 127.0.0.1 at Wed Feb 01 06:45:06 +0530 2012
+  Processing by ExpensesController#index as HTML
+  [1m[36mExpense Load (0.0ms)[0m  [1mSELECT `expenses`.* FROM `expenses`[0m
+Rendered expenses/index.html.erb within layouts/application (46.8ms)
+Completed 200 OK in 234ms (Views: 78.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/expenses/new" for 127.0.0.1 at Wed Feb 01 06:45:33 +0530 2012
+  Processing by ExpensesController#new as HTML
+Rendered expenses/_form.html.erb (15.6ms)
+Rendered expenses/new.html.erb within layouts/application (46.8ms)
+Completed 200 OK in 94ms (Views: 78.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/expenses/new" for 127.0.0.1 at Wed Feb 01 06:47:20 +0530 2012
+  Processing by ExpensesController#new as HTML
+Rendered expenses/_form.html.erb (31.2ms)
+Rendered expenses/new.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 78ms (Views: 62.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/expenses/new" for 127.0.0.1 at Wed Feb 01 06:48:23 +0530 2012
+  Processing by ExpensesController#new as HTML
+Rendered expenses/_form.html.erb (15.6ms)
+Rendered expenses/new.html.erb within layouts/application (46.8ms)
+Completed 200 OK in 94ms (Views: 78.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/expenses/new" for 127.0.0.1 at Wed Feb 01 06:49:29 +0530 2012
+  Processing by ExpensesController#new as HTML
+Rendered expenses/_form.html.erb (72.0ms)
+Rendered expenses/new.html.erb within layouts/application (87.0ms)
+Completed 200 OK in 132ms (Views: 120.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/expenses/new" for 127.0.0.1 at Wed Feb 01 06:51:22 +0530 2012
+  Processing by ExpensesController#new as HTML
+Rendered expenses/_form.html.erb (19.0ms)
+Rendered expenses/new.html.erb within layouts/application (45.0ms)
+Completed 200 OK in 90ms (Views: 78.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/expenses/new" for 127.0.0.1 at Wed Feb 01 06:52:03 +0530 2012
+  Processing by ExpensesController#new as HTML
+ERROR: compiling _app_views_expenses__form_html_erb___974724425_46825824_531190 RAISED compile error
+C:/Users/Aa/Documents/iExpense/app/views/expenses/_form.html.erb:21: syntax error, unexpected '^', expecting ']'
+...quired => true, :pattern => [^0-9], :title => "Enter amount ...
+                              ^
+C:/Users/Aa/Documents/iExpense/app/views/expenses/_form.html.erb:21: syntax error, unexpected ']', expecting ')'
+...ed => true, :pattern => [^0-9], :title => "Enter amount less...
+                              ^
+Function body:           def _app_views_expenses__form_html_erb___974724425_46825824_531190(local_assigns)
+            _old_virtual_path, @_virtual_path = @_virtual_path, "expenses/_form";_old_output_buffer = @output_buffer;form = local_assigns[:form];;@output_buffer = ActionView::OutputBuffer.new;@output_buffer.safe_concat('<!DOCTYPE html>
+');@output_buffer.append=  form_for(@expense) do |f| @output_buffer.safe_concat('
+');   if @expense.errors.any? 
+@output_buffer.safe_concat('    <div id="error_explanation">
+      <h2>');@output_buffer.append= ( pluralize(@expense.errors.count, "error") );@output_buffer.safe_concat(' prohibited this expense from being saved:</h2>
+
+      <ul>
+');@output_buffer.append_if_string=        @expense.errors.full_messages.each do |msg| 
+@output_buffer.safe_concat('        <li>');@output_buffer.append= ( msg );@output_buffer.safe_concat('</li>
+');       end 
+@output_buffer.safe_concat('      </ul>
+    </div>
+');   end 
+@output_buffer.safe_concat('
+  <div class="field">
+    ');@output_buffer.append= ( f.label :spent_on );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_field :spent_on, :required => true );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+    ');@output_buffer.append= ( f.label :amount );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_field :amount, :required => true, :pattern => [^0-9], :title => "Enter amount less than 50000" );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+    ');@output_buffer.append= ( f.label :date );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.datetime_select :date, :required => true );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+    ');@output_buffer.append= ( f.label :note );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_area :note ,:cols => 22 , :rows => 5 );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="actions">
+    ');@output_buffer.append= ( f.submit );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+'); end 
+@output_buffer.safe_concat('
+<script>
+</script>
+
+');@output_buffer.to_s
+          ensure
+            @_virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: C:/Users/Aa/Documents/iExpense/app/views/expenses/_form.html.erb:42:in `compile'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/template.rb:134:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/notifications.rb:54:in `instrument'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/template.rb:127:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/render/partials.rb:333:in `render_partial'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/render/partials.rb:262:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/notifications.rb:52:in `instrument'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/notifications.rb:52:in `instrument'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/render/partials.rb:260:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/render/partials.rb:378:in `_render_partial'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/render/rendering.rb:31:in `render'
+C:/Users/Aa/Documents/iExpense/app/views/expenses/new.html.erb:3:in `_app_views_expenses_new_html_erb___745912619_46835136_0'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/template.rb:135:in `send'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/template.rb:135:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/notifications.rb:54:in `instrument'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/template.rb:127:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/render/rendering.rb:59:in `_render_template'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/notifications.rb:52:in `instrument'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/notifications.rb:52:in `instrument'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/render/rendering.rb:56:in `_render_template'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/render/rendering.rb:26:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/abstract_controller/rendering.rb:115:in `_render_template'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/abstract_controller/rendering.rb:109:in `render_to_body'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/abstract_controller/rendering.rb:102:in `render_to_string'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/abstract_controller/rendering.rb:93:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/rendering.rb:17:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/instrumentation.rb:40:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+C:/Ruby187/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/instrumentation.rb:40:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-3.0.9/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/instrumentation.rb:39:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/mime_responds.rb:261:in `retrieve_response_from_mimes'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/mime_responds.rb:192:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/mime_responds.rb:192:in `respond_to'
+C:/Users/Aa/Documents/iExpense/app/controllers/expenses_controller.rb:29:in `new'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/abstract_controller/base.rb:150:in `process_action'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/rendering.rb:11:in `process_action'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/abstract_controller/callbacks.rb:18:in `process_action'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/callbacks.rb:436:in `_run__406702022__process_action__943997142__callbacks'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/callbacks.rb:410:in `send'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/callbacks.rb:410:in `_run_process_action_callbacks'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/callbacks.rb:94:in `send'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/callbacks.rb:94:in `run_callbacks'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/abstract_controller/callbacks.rb:17:in `process_action'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/notifications.rb:52:in `instrument'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/notifications.rb:52:in `instrument'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/rescue.rb:17:in `process_action'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/abstract_controller/base.rb:119:in `process'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/abstract_controller/rendering.rb:41:in `process'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal.rb:138:in `dispatch'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal.rb:178:in `action'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/routing/route_set.rb:62:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/routing/route_set.rb:27:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:148:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:93:in `recognize'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:75:in `optimized_each'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:92:in `recognize'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:139:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/routing/route_set.rb:493:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/head.rb:14:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.5/lib/rack/methodoverride.rb:24:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/flash.rb:182:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/cookies.rb:302:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-3.0.9/lib/active_record/query_cache.rb:32:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-3.0.9/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-3.0.9/lib/active_record/query_cache.rb:12:in `cache'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-3.0.9/lib/active_record/query_cache.rb:31:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-3.0.9/lib/active_record/connection_adapters/abstract/connection_pool.rb:354:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/callbacks.rb:46:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/callbacks.rb:416:in `_run_call_callbacks'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.5/lib/rack/sendfile.rb:106:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/show_exceptions.rb:47:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.9/lib/rails/rack/logger.rb:13:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.5/lib/rack/runtime.rb:17:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.5/lib/rack/lock.rb:13:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.5/lib/rack/lock.rb:13:in `synchronize'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.5/lib/rack/lock.rb:13:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/static.rb:30:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.9/lib/rails/application.rb:168:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.9/lib/rails/application.rb:77:in `send'
+C:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.9/lib/rails/application.rb:77:in `method_missing'
+C:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.9/lib/rails/rack/log_tailer.rb:14:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.5/lib/rack/content_length.rb:13:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.5/lib/rack/chunked.rb:15:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.5/lib/rack/handler/mongrel.rb:67:in `process'
+C:/Ruby187/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mingw32/lib/mongrel.rb:159:in `process_client'
+C:/Ruby187/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mingw32/lib/mongrel.rb:158:in `each'
+C:/Ruby187/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mingw32/lib/mongrel.rb:158:in `process_client'
+C:/Ruby187/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mingw32/lib/mongrel.rb:285:in `run'
+C:/Ruby187/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mingw32/lib/mongrel.rb:285:in `initialize'
+C:/Ruby187/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mingw32/lib/mongrel.rb:285:in `new'
+C:/Ruby187/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mingw32/lib/mongrel.rb:285:in `run'
+C:/Ruby187/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mingw32/lib/mongrel.rb:268:in `initialize'
+C:/Ruby187/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mingw32/lib/mongrel.rb:268:in `new'
+C:/Ruby187/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mingw32/lib/mongrel.rb:268:in `run'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.5/lib/rack/handler/mongrel.rb:38:in `run'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.5/lib/rack/server.rb:217:in `start'
+C:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.9/lib/rails/commands/server.rb:65:in `start'
+C:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.9/lib/rails/commands.rb:30
+C:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.9/lib/rails/commands.rb:27:in `tap'
+C:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.9/lib/rails/commands.rb:27
+script/rails:6:in `require'
+script/rails:6
+Rendered expenses/_form.html.erb (25.0ms)
+Rendered expenses/new.html.erb within layouts/application (38.0ms)
+Completed 500 Internal Server Error in 88ms
+
+ActionView::Template::Error (compile error
+C:/Users/Aa/Documents/iExpense/app/views/expenses/_form.html.erb:21: syntax error, unexpected '^', expecting ']'
+...quired => true, :pattern => [^0-9], :title => "Enter amount ...
+                              ^
+C:/Users/Aa/Documents/iExpense/app/views/expenses/_form.html.erb:21: syntax error, unexpected ']', expecting ')'
+...ed => true, :pattern => [^0-9], :title => "Enter amount less...
+                              ^):
+    18:   </div>
+    19:   <div class="field">
+    20:     <%= f.label :amount %><br />
+    21:     <%= f.text_field :amount, :required => true, :pattern => [^0-9], :title => "Enter amount less than 50000" %>
+    22:   </div>
+    23:   <div class="field">
+    24:     <%= f.label :date %><br />
+  app/views/expenses/_form.html.erb:42:in `compile'
+  app/views/expenses/new.html.erb:3:in `_app_views_expenses_new_html_erb___745912619_46835136_0'
+  app/controllers/expenses_controller.rb:29:in `new'
+
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (21.0ms)
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (41.0ms)
+
+
+Started GET "/expenses/new" for 127.0.0.1 at Wed Feb 01 06:52:03 +0530 2012
+  Processing by ExpensesController#new as HTML
+ERROR: compiling _app_views_expenses__form_html_erb___974724425_47107284_531190 RAISED compile error
+C:/Users/Aa/Documents/iExpense/app/views/expenses/_form.html.erb:21: syntax error, unexpected '^', expecting ']'
+...quired => true, :pattern => [^0-9], :title => "Enter amount ...
+                              ^
+C:/Users/Aa/Documents/iExpense/app/views/expenses/_form.html.erb:21: syntax error, unexpected ']', expecting ')'
+...ed => true, :pattern => [^0-9], :title => "Enter amount less...
+                              ^
+Function body:           def _app_views_expenses__form_html_erb___974724425_47107284_531190(local_assigns)
+            _old_virtual_path, @_virtual_path = @_virtual_path, "expenses/_form";_old_output_buffer = @output_buffer;form = local_assigns[:form];;@output_buffer = ActionView::OutputBuffer.new;@output_buffer.safe_concat('<!DOCTYPE html>
+');@output_buffer.append=  form_for(@expense) do |f| @output_buffer.safe_concat('
+');   if @expense.errors.any? 
+@output_buffer.safe_concat('    <div id="error_explanation">
+      <h2>');@output_buffer.append= ( pluralize(@expense.errors.count, "error") );@output_buffer.safe_concat(' prohibited this expense from being saved:</h2>
+
+      <ul>
+');@output_buffer.append_if_string=        @expense.errors.full_messages.each do |msg| 
+@output_buffer.safe_concat('        <li>');@output_buffer.append= ( msg );@output_buffer.safe_concat('</li>
+');       end 
+@output_buffer.safe_concat('      </ul>
+    </div>
+');   end 
+@output_buffer.safe_concat('
+  <div class="field">
+    ');@output_buffer.append= ( f.label :spent_on );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_field :spent_on, :required => true );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+    ');@output_buffer.append= ( f.label :amount );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_field :amount, :required => true, :pattern => [^0-9], :title => "Enter amount less than 50000" );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+    ');@output_buffer.append= ( f.label :date );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.datetime_select :date, :required => true );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+    ');@output_buffer.append= ( f.label :note );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_area :note ,:cols => 22 , :rows => 5 );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="actions">
+    ');@output_buffer.append= ( f.submit );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+'); end 
+@output_buffer.safe_concat('
+<script>
+</script>
+
+');@output_buffer.to_s
+          ensure
+            @_virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: C:/Users/Aa/Documents/iExpense/app/views/expenses/_form.html.erb:42:in `compile'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/template.rb:134:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/notifications.rb:54:in `instrument'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/template.rb:127:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/render/partials.rb:333:in `render_partial'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/render/partials.rb:262:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/notifications.rb:52:in `instrument'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/notifications.rb:52:in `instrument'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/render/partials.rb:260:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/render/partials.rb:378:in `_render_partial'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/render/rendering.rb:31:in `render'
+C:/Users/Aa/Documents/iExpense/app/views/expenses/new.html.erb:3:in `_app_views_expenses_new_html_erb___745912619_47114640_0'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/template.rb:135:in `send'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/template.rb:135:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/notifications.rb:54:in `instrument'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/template.rb:127:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/render/rendering.rb:59:in `_render_template'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/notifications.rb:52:in `instrument'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/notifications.rb:52:in `instrument'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/render/rendering.rb:56:in `_render_template'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/render/rendering.rb:26:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/abstract_controller/rendering.rb:115:in `_render_template'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/abstract_controller/rendering.rb:109:in `render_to_body'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/abstract_controller/rendering.rb:102:in `render_to_string'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/abstract_controller/rendering.rb:93:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/rendering.rb:17:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/instrumentation.rb:40:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+C:/Ruby187/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/instrumentation.rb:40:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-3.0.9/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/instrumentation.rb:39:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/mime_responds.rb:261:in `retrieve_response_from_mimes'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/mime_responds.rb:192:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/mime_responds.rb:192:in `respond_to'
+C:/Users/Aa/Documents/iExpense/app/controllers/expenses_controller.rb:29:in `new'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/abstract_controller/base.rb:150:in `process_action'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/rendering.rb:11:in `process_action'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/abstract_controller/callbacks.rb:18:in `process_action'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/callbacks.rb:436:in `_run__406702022__process_action__943997142__callbacks'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/callbacks.rb:410:in `send'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/callbacks.rb:410:in `_run_process_action_callbacks'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/callbacks.rb:94:in `send'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/callbacks.rb:94:in `run_callbacks'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/abstract_controller/callbacks.rb:17:in `process_action'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/notifications.rb:52:in `instrument'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/notifications.rb:52:in `instrument'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/rescue.rb:17:in `process_action'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/abstract_controller/base.rb:119:in `process'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/abstract_controller/rendering.rb:41:in `process'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal.rb:138:in `dispatch'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal.rb:178:in `action'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/routing/route_set.rb:62:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/routing/route_set.rb:27:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:148:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:93:in `recognize'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:75:in `optimized_each'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:92:in `recognize'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:139:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/routing/route_set.rb:493:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/head.rb:14:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.5/lib/rack/methodoverride.rb:24:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/flash.rb:182:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/cookies.rb:302:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-3.0.9/lib/active_record/query_cache.rb:32:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-3.0.9/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-3.0.9/lib/active_record/query_cache.rb:12:in `cache'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-3.0.9/lib/active_record/query_cache.rb:31:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-3.0.9/lib/active_record/connection_adapters/abstract/connection_pool.rb:354:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/callbacks.rb:46:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/callbacks.rb:416:in `_run_call_callbacks'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.5/lib/rack/sendfile.rb:106:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/show_exceptions.rb:47:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.9/lib/rails/rack/logger.rb:13:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.5/lib/rack/runtime.rb:17:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.5/lib/rack/lock.rb:13:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.5/lib/rack/lock.rb:13:in `synchronize'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.5/lib/rack/lock.rb:13:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/static.rb:30:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.9/lib/rails/application.rb:168:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.9/lib/rails/application.rb:77:in `send'
+C:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.9/lib/rails/application.rb:77:in `method_missing'
+C:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.9/lib/rails/rack/log_tailer.rb:14:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.5/lib/rack/content_length.rb:13:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.5/lib/rack/chunked.rb:15:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.5/lib/rack/handler/mongrel.rb:67:in `process'
+C:/Ruby187/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mingw32/lib/mongrel.rb:159:in `process_client'
+C:/Ruby187/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mingw32/lib/mongrel.rb:158:in `each'
+C:/Ruby187/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mingw32/lib/mongrel.rb:158:in `process_client'
+C:/Ruby187/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mingw32/lib/mongrel.rb:285:in `run'
+C:/Ruby187/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mingw32/lib/mongrel.rb:285:in `initialize'
+C:/Ruby187/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mingw32/lib/mongrel.rb:285:in `new'
+C:/Ruby187/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mingw32/lib/mongrel.rb:285:in `run'
+C:/Ruby187/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mingw32/lib/mongrel.rb:268:in `initialize'
+C:/Ruby187/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mingw32/lib/mongrel.rb:268:in `new'
+C:/Ruby187/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mingw32/lib/mongrel.rb:268:in `run'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.5/lib/rack/handler/mongrel.rb:38:in `run'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.5/lib/rack/server.rb:217:in `start'
+C:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.9/lib/rails/commands/server.rb:65:in `start'
+C:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.9/lib/rails/commands.rb:30
+C:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.9/lib/rails/commands.rb:27:in `tap'
+C:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.9/lib/rails/commands.rb:27
+script/rails:6:in `require'
+script/rails:6
+Rendered expenses/_form.html.erb (4.0ms)
+Rendered expenses/new.html.erb within layouts/application (20.0ms)
+Completed 500 Internal Server Error in 112ms
+
+ActionView::Template::Error (compile error
+C:/Users/Aa/Documents/iExpense/app/views/expenses/_form.html.erb:21: syntax error, unexpected '^', expecting ']'
+...quired => true, :pattern => [^0-9], :title => "Enter amount ...
+                              ^
+C:/Users/Aa/Documents/iExpense/app/views/expenses/_form.html.erb:21: syntax error, unexpected ']', expecting ')'
+...ed => true, :pattern => [^0-9], :title => "Enter amount less...
+                              ^):
+    18:   </div>
+    19:   <div class="field">
+    20:     <%= f.label :amount %><br />
+    21:     <%= f.text_field :amount, :required => true, :pattern => [^0-9], :title => "Enter amount less than 50000" %>
+    22:   </div>
+    23:   <div class="field">
+    24:     <%= f.label :date %><br />
+  app/views/expenses/_form.html.erb:42:in `compile'
+  app/views/expenses/new.html.erb:3:in `_app_views_expenses_new_html_erb___745912619_47114640_0'
+  app/controllers/expenses_controller.rb:29:in `new'
+
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (11.0ms)
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (40.0ms)
+
+
+Started GET "/expenses/new" for 127.0.0.1 at Wed Feb 01 06:52:43 +0530 2012
+  Processing by ExpensesController#new as HTML
+Rendered expenses/_form.html.erb (19.0ms)
+Rendered expenses/new.html.erb within layouts/application (43.0ms)
+Completed 200 OK in 88ms (Views: 76.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/expenses/new" for 127.0.0.1 at Wed Feb 01 06:53:46 +0530 2012
+  Processing by ExpensesController#new as HTML
+Rendered expenses/_form.html.erb (18.0ms)
+Rendered expenses/new.html.erb within layouts/application (34.0ms)
+Completed 200 OK in 75ms (Views: 61.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/expenses/new" for 127.0.0.1 at Wed Feb 01 06:54:40 +0530 2012
+  Processing by ExpensesController#new as HTML
+Rendered expenses/_form.html.erb (28.0ms)
+Rendered expenses/new.html.erb within layouts/application (48.0ms)
+Completed 200 OK in 98ms (Views: 85.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/expenses/new" for 127.0.0.1 at Wed Feb 01 06:55:45 +0530 2012
+  Processing by ExpensesController#new as HTML
+Rendered expenses/_form.html.erb (58.0ms)
+Rendered expenses/new.html.erb within layouts/application (73.0ms)
+Completed 200 OK in 114ms (Views: 101.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/expenses/new" for 127.0.0.1 at Wed Feb 01 07:00:36 +0530 2012
+  Processing by ExpensesController#new as HTML
+Rendered expenses/_form.html.erb (13.0ms)
+Rendered expenses/new.html.erb within layouts/application (28.0ms)
+Completed 200 OK in 72ms (Views: 59.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/expenses/new" for 127.0.0.1 at Wed Feb 01 07:02:16 +0530 2012
+  Processing by ExpensesController#new as HTML
+Rendered expenses/_form.html.erb (13.0ms)
+Rendered expenses/new.html.erb within layouts/application (28.0ms)
+Completed 200 OK in 77ms (Views: 65.0ms | ActiveRecord: 0.0ms)

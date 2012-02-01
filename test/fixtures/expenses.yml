@@ -1,13 +1,13 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
   spent_on: MyString
-  date: 2012-01-30 15:09:12
   amount: 1
-  spent_by: MyString
+  date: 2012-02-01 06:01:21
+  note: MyString
 
 two:
   spent_on: MyString
-  date: 2012-01-30 15:09:12
   amount: 1
-  spent_by: MyString
+  date: 2012-02-01 06:01:21
+  note: MyString

@@ -3,9 +3,9 @@
 <table>
   <tr>
     <th>Spent on</th>
-    <th>Date</th>
     <th>Amount</th>
-    <th>Spent by</th>
+    <th>Date</th>
+    <th>Note</th>
     <th></th>
     <th></th>
     <th></th>
@@ -14,12 +14,12 @@
 <% @expenses.each do |expense| %>
   <tr>
     <td><%= expense.spent_on %></td>
-    <td><%= expense.date %></td>
     <td><%= expense.amount %></td>
-    <td><%= expense.spent_by %></td>
+    <td><%= expense.date %></td>
+    <td><%= expense.note %></td>
     <td><%= link_to 'Show', expense %></td>
     <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
-    <td><%= link_to 'Destroy', expense, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Destroy', expense, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
@@ -27,3 +27,5 @@
 <br />
 
 <%= link_to 'New Expense', new_expense_path %>
+
+
