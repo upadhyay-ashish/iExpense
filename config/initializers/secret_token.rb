@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-IExpense::Application.config.secret_token = '28e98765d82f869c71bdcf5697e3185da7f6a145b2d3e0042cd87511449c19300e6595ad72fd5524ebf344af92f6f7bb24c3cbb21038ad81e30e55224b86fdaa'
+IExpense::Application.config.secret_token = '7218a40b34f2057a3d7f4398fb26c29cd409d32015b48cc01478904f505a7cd447f933a90287110c949e0663390edbb8f6fa80ddfd03496fbb41934f8287405e'
